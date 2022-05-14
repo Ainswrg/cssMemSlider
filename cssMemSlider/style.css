@@ -22,6 +22,7 @@
   --navigation: rgba(0, 0, 0, 0.4);
   --transition: 0.3s ease-in;
   --transition-1: all 800ms cubic-bezier(0.7, 0, 0.19, 1);
+  --transition-2: 0.8s ease-in-out;
   --label-size: 2.5rem;
   --cst-size-default: 1.2rem;
   --cst-size: 0.8rem;
@@ -38,20 +39,21 @@
 body {
   background: var(--body);
   font-family: "Scheherazade New", serif;
-}
-
-.container {
-  width: 100%;
-  max-width: 1920px;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-image: linear-gradient(var(--rotate), var(--body-blue), var(--dark-blue-2) 43%, var(--dark-violet));
   animation: spin 2.5s linear infinite;
   opacity: 1;
   transition: opacity 0.5s;
   z-index: 0;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1920px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @keyframes spin {
   0% {
@@ -85,7 +87,7 @@ input {
 #slider-container {
   max-height: 90vh;
   height: 100%;
-  border: 2px solid var(--primary);
+  border: 0.1rem solid var(--primary);
   display: grid;
   padding: 1.2rem;
   background-color: var(--sliderBG);
@@ -101,7 +103,7 @@ input {
 /* Slider */
 .slider-frame {
   grid-area: frame;
-  border: 2px solid var(--primary);
+  border: 0.1rem solid var(--primary);
 }
 .slider__frame-wrapper {
   width: 100%;
@@ -126,22 +128,22 @@ img {
 }
 
 #nav1:checked ~ #slider-container .slider-frame .slider__frame-wrapper .slides {
-  margin-left: 0;
+  transform: translateX(0);
 }
 #nav2:checked ~ #slider-container .slider-frame .slider__frame-wrapper .slides {
-  margin-left: -100%;
+  transform: translateX(-16.66666666666667%);
 }
 #nav3:checked ~ #slider-container .slider-frame .slider__frame-wrapper .slides {
-  margin-left: -200%;
+  transform: translateX(-33.33333333333333%);
 }
 #nav4:checked ~ #slider-container .slider-frame .slider__frame-wrapper .slides {
-  margin-left: -300%;
+  transform: translateX(-50%);
 }
 #nav5:checked ~ #slider-container .slider-frame .slider__frame-wrapper .slides {
-  margin-left: -400%;
+  transform: translateX(-66.66666666666667%);
 }
 #nav6:checked ~ #slider-container .slider-frame .slider__frame-wrapper .slides {
-  margin-left: -500%;
+  transform: translateX(-83.33333333333333%);
 }
 
 /* Description */
@@ -207,7 +209,7 @@ p {
 .slider__navigation {
   grid-area: nav;
   background: var(--navigation);
-  border: 2px solid var(--primary);
+  border: 0.1rem solid var(--primary);
 }
 #navigation-menu {
   width: 100%;
@@ -225,7 +227,6 @@ label {
   opacity: 0;
   transition: var(--transition);
 }
-
 .cst-radio-default {
   width: var(--cst-size-default);
   height: var(--cst-size-default);
@@ -236,69 +237,24 @@ label {
   transition: var(--transition);
 }
 
-/* active btn */
-label:hover:nth-of-type(1) ~ #cst-default-1 {
-  background-color: var(--hover);
-  transform: scale(1.2);
-  opacity: 0.6;
-}
-label:hover:nth-of-type(2) ~ #cst-default-2 {
-  background-color: var(--hover);
-  transform: scale(1.2);
-  opacity: 0.6;
-}
-label:hover:nth-of-type(3) ~ #cst-default-3 {
-  background-color: var(--hover);
-  transform: scale(1.2);
-  opacity: 0.6;
-}
-label:hover:nth-of-type(4) ~ #cst-default-4 {
-  background-color: var(--hover);
-  transform: scale(1.2);
-  opacity: 0.6;
-}
-label:hover:nth-of-type(5) ~ #cst-default-5 {
-  background-color: var(--hover);
-  transform: scale(1.2);
-  opacity: 0.6;
-}
+/* hover btn */
+label:hover:nth-of-type(1) ~ #cst-default-1,
+label:hover:nth-of-type(2) ~ #cst-default-2,
+label:hover:nth-of-type(3) ~ #cst-default-3,
+label:hover:nth-of-type(4) ~ #cst-default-4,
+label:hover:nth-of-type(5) ~ #cst-default-5,
 label:hover:nth-of-type(6) ~ #cst-default-6 {
   background-color: var(--hover);
   transform: scale(1.2);
   opacity: 0.6;
 }
 
-/* hover btn */
-label:active:nth-of-type(1) ~ #cst-default-1 {
-  background-color: var(--active);
-  transition: var(--transition);
-  transform: scale(0.2);
-  opacity: 0.4;
-}
-label:active:nth-of-type(2) ~ #cst-default-2 {
-  background-color: var(--active);
-  transition: var(--transition);
-  transform: scale(0.2);
-  opacity: 0.4;
-}
-label:active:nth-of-type(3) ~ #cst-default-3 {
-  background-color: var(--active);
-  transition: var(--transition);
-  transform: scale(0.2);
-  opacity: 0.4;
-}
-label:active:nth-of-type(4) ~ #cst-default-4 {
-  background-color: var(--active);
-  transition: var(--transition);
-  transform: scale(0.2);
-  opacity: 0.4;
-}
-label:active:nth-of-type(5) ~ #cst-default-5 {
-  background-color: var(--active);
-  transition: var(--transition);
-  transform: scale(0.2);
-  opacity: 0.4;
-}
+/* active btn */
+label:active:nth-of-type(1) ~ #cst-default-1,
+label:active:nth-of-type(2) ~ #cst-default-2,
+label:active:nth-of-type(3) ~ #cst-default-3,
+label:active:nth-of-type(4) ~ #cst-default-4,
+label:active:nth-of-type(5) ~ #cst-default-5,
 label:active:nth-of-type(6) ~ #cst-default-6 {
   background-color: var(--active);
   transition: var(--transition);
@@ -355,31 +311,11 @@ label:nth-of-type(6),
   grid-row: 1;
 }
 
-#nav1:checked ~ #slider-container .slider__navigation #navigation-menu > #cst-radio-1 {
-  background-color: var(--current);
-  transform: scale(1);
-  visibility: visible;
-}
-#nav2:checked ~ #slider-container .slider__navigation #navigation-menu > #cst-radio-2 {
-  background-color: var(--current);
-  transform: scale(1);
-  visibility: visible;
-}
-#nav3:checked ~ #slider-container .slider__navigation #navigation-menu > #cst-radio-3 {
-  background-color: var(--current);
-  transform: scale(1);
-  visibility: visible;
-}
-#nav4:checked ~ #slider-container .slider__navigation #navigation-menu > #cst-radio-4 {
-  background-color: var(--current);
-  transform: scale(1);
-  visibility: visible;
-}
-#nav5:checked ~ #slider-container .slider__navigation #navigation-menu > #cst-radio-5 {
-  background-color: var(--current);
-  transform: scale(1);
-  visibility: visible;
-}
+#nav1:checked ~ #slider-container .slider__navigation #navigation-menu > #cst-radio-1,
+#nav2:checked ~ #slider-container .slider__navigation #navigation-menu > #cst-radio-2,
+#nav3:checked ~ #slider-container .slider__navigation #navigation-menu > #cst-radio-3,
+#nav4:checked ~ #slider-container .slider__navigation #navigation-menu > #cst-radio-4,
+#nav5:checked ~ #slider-container .slider__navigation #navigation-menu > #cst-radio-5,
 #nav6:checked ~ #slider-container .slider__navigation #navigation-menu > #cst-radio-6 {
   background-color: var(--current);
   transform: scale(1);
@@ -390,14 +326,12 @@ label:nth-of-type(6),
   .slider {
     width: 80%;
     height: 85vh;
+    transition: var(--transition-2);
   }
   #slider-container {
     max-height: 85vh;
-    height: 100%;
     border: 0.2rem solid var(--primary);
-    display: grid;
-    padding: 1.2rem;
-    background-color: var(--sliderBG);
+    transition: var(--transition-2);
     grid-template-areas:
       "frame frame"
       "text text"
@@ -435,21 +369,13 @@ label:nth-of-type(6),
   }
   #slider-container {
     max-height: 100vh;
-    height: 100%;
     border: 0.2rem solid var(--primary);
-    display: grid;
-    padding: 1.2rem;
-    background-color: var(--sliderBG);
     grid-template-areas:
       "frame frame"
       "text text"
       "nav nav";
     grid-template-columns: 100%;
     grid-template-rows: 60% 15% 25%;
-  }
-  .slider-text > p {
-    display: flex;
-    justify-content: center;
   }
   #navigation-menu {
     width: 40%;
@@ -469,22 +395,12 @@ label:nth-of-type(6),
     width: 100%;
   }
   #slider-container {
-    max-height: 100vh;
-    height: 100%;
-    border: 0.2rem solid var(--primary);
-    display: grid;
-    padding: 1.2rem;
-    background-color: var(--sliderBG);
     grid-template-areas:
       "frame frame"
       "text text"
       "nav nav";
     grid-template-columns: 100%;
     grid-template-rows: 55% 20% 25%;
-  }
-  .slider-text > p {
-    display: flex;
-    justify-content: center;
   }
   #navigation-menu {
     width: 70%;
@@ -495,5 +411,15 @@ label:nth-of-type(6),
     --cst-size: 1rem;
     --desc-font: 1.8rem;
     --desc-line-height: 2rem;
+  }
+}
+
+@media (max-width: 375px) {
+  #navigation-menu {
+    width: 90%;
+  }
+  :root {
+    --desc-font: 1.5rem;
+    --desc-line-height: 1.8rem;
   }
 }
