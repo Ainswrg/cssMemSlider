@@ -13,8 +13,8 @@
 }
 
 * {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -55,16 +55,22 @@ body {
   grid-area: frame;
   border: 2px solid black;
 }
+
+input {
+  display: none;
+}
+
 .slider__frame-wrapper {
   background: rgb(68, 53, 53);
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 .slides {
   width: 400%;
   display: flex;
   transition: var(--transition-1);
-  max-height: 480px;
+  max-height: 30rem;
   height: 100%;
 }
 .slide {
@@ -101,7 +107,6 @@ body {
   grid-area: text;
   background: var(--descriptionBG);
   color: var(--text);
-  height: 20%;
   display: flex;
 }
 p {
@@ -149,8 +154,8 @@ p {
   grid-template-rows: 1fr;
 }
 label {
-  width: 20px;
-  height: 20px;
+  width: 1.2rem;
+  height: 1.2rem;
   border-radius: 50%;
   background: white;
   margin: auto;
@@ -171,6 +176,8 @@ label:active {
 .cst-radio {
   width: 16px;
   height: 16px;
+  width: 0.8rem;
+  height: 0.8rem;
   margin: auto;
   cursor: pointer;
   background: black;
@@ -222,4 +229,39 @@ label:nth-of-type(4),
   background-color: var(--current);
   transform: scale(1);
   visibility: visible;
+}
+
+@media (max-width: 768px) {
+  #slider-container {
+    max-height: 70vh;
+    height: 100%;
+    border: 2px solid black;
+    display: grid;
+    padding: 1.2rem;
+    background-color: rgb(111, 111, 111);
+    grid-template-areas:
+      "frame frame"
+      "text text"
+      "nav nav";
+    grid-template-columns: 100%;
+    grid-template-rows: 70% 10% 20%;
+  }
+  .slider-text {
+    justify-content: center;
+    text-align: center;
+  }
+  .slider-text > p {
+    display: flex;
+    justify-content: center;
+  }
+
+  #navigation-menu {
+    width: 50%;
+    height: 20%;
+    margin: 0 auto;
+    display: grid;
+    background: #222222;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+  }
 }
