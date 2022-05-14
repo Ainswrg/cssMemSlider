@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,10 +9,15 @@
   <link rel="icon" type="image/x-icon" href="./assets/image/favicon.ico">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <main class="container">
     <div class="slider">
-      <div class="slider-container">
+      <input checked type="radio" name="navigation" id="nav1">
+      <input type="radio" name="navigation" id="nav2">
+      <input type="radio" name="navigation" id="nav3">
+      <input type="radio" name="navigation" id="nav4">
+      <div id="slider-container">
         <div class="slider-frame">
           <div class="slider__frame-wrapper">
             <div class="slides">
@@ -22,14 +28,24 @@
             </div>
           </div>
         </div>
-        <div class="slider-text">slider</div>
+        <div class="slider-text">
+          <p>slider</p>
+        </div>
         <div class="slider__navigation">
-          <div class="navigation-menu">
-
+          <div id="navigation-menu">
+            <span class="cst-radio"></span>
+            <label for="nav1"></label>
+            <span class="cst-radio"></span>
+            <label for="nav2"></label>
+            <span class="cst-radio"></span>
+            <label for="nav3"></label>
+            <span class="cst-radio"></span>
+            <label for="nav4"></label>
           </div>
         </div>
       </div>
     </div>
   </main>
 </body>
+
 </html>
